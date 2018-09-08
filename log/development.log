@@ -5,3 +5,300 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-09-08 12:45:08 +0300
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBreweries (20180908094419)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "breweries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180908094419_create_breweries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180908094419"]]
+  ↳ bin/rails:9
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-08 09:53:50.349533"], ["updated_at", "2018-09-08 09:53:50.349533"]]
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-09-08 12:54:07 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/local/tgtapio/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/local/tgtapio/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/local/tgtapio/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 9ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/breweries" for 127.0.0.1 at 2018-09-08 12:54:15 +0300
+Processing by BreweriesController#index as HTML
+  Rendering breweries/index.html.erb within layouts/application
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/breweries/index.html.erb:15
+  Rendered breweries/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 549ms (Views: 542.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/breweries/new" for 127.0.0.1 at 2018-09-08 12:54:17 +0300
+Processing by BreweriesController#new as HTML
+  Rendering breweries/new.html.erb within layouts/application
+  Rendered breweries/_form.html.erb (17.0ms)
+  Rendered breweries/new.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 72ms (Views: 62.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/breweries" for 127.0.0.1 at 2018-09-08 12:54:25 +0300
+Processing by BreweriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ew80oz6GYC9hfzrWjljqyqMo4keLAkHSLnGyu5n6N5zFDUbvjDPfOTZHErkeZVXkuctU59/N5A/Af0cBH70KJA==", "brewery"=>{"name"=>"Kova", "year"=>"2"}, "commit"=>"Create Brewery"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[36mBrewery Create (1.3ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kova"], ["year", 2], ["created_at", "2018-09-08 09:54:25.861885"], ["updated_at", "2018-09-08 09:54:25.861885"]]
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+Redirected to http://localhost:3000/breweries/1
+Completed 302 Found in 15ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/breweries/1" for 127.0.0.1 at 2018-09-08 12:54:25 +0300
+Processing by BreweriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/breweries_controller.rb:67
+  Rendering breweries/show.html.erb within layouts/application
+  Rendered breweries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/breweries" for 127.0.0.1 at 2018-09-08 12:54:28 +0300
+Processing by BreweriesController#index as HTML
+  Rendering breweries/index.html.erb within layouts/application
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/breweries/index.html.erb:15
+  Rendered breweries/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 36ms (Views: 33.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/breweries/new" for 127.0.0.1 at 2018-09-08 12:54:29 +0300
+Processing by BreweriesController#new as HTML
+  Rendering breweries/new.html.erb within layouts/application
+  Rendered breweries/_form.html.erb (4.5ms)
+  Rendered breweries/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 44ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/breweries" for 127.0.0.1 at 2018-09-08 12:54:38 +0300
+Processing by BreweriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N8BSoPOgmZQ6GKLtQy8CmGv/hA6KPdUZSyIS7plVB86JwiDsQRUmgm0gioLTEr22cRwyrt7ycMSlLOdUHxI6dg==", "brewery"=>{"name"=>"Pehmeä", "year"=>"1002"}, "commit"=>"Create Brewery"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[36mBrewery Create (3.1ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pehmeä"], ["year", 1002], ["created_at", "2018-09-08 09:54:38.132354"], ["updated_at", "2018-09-08 09:54:38.132354"]]
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+Redirected to http://localhost:3000/breweries/2
+Completed 302 Found in 20ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/breweries/2" for 127.0.0.1 at 2018-09-08 12:54:38 +0300
+Processing by BreweriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/breweries_controller.rb:67
+  Rendering breweries/show.html.erb within layouts/application
+  Rendered breweries/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 24.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/breweries" for 127.0.0.1 at 2018-09-08 12:54:40 +0300
+Processing by BreweriesController#index as HTML
+  Rendering breweries/index.html.erb within layouts/application
+  [1m[36mBrewery Load (1.3ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/breweries/index.html.erb:15
+  Rendered breweries/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/breweries/new" for 127.0.0.1 at 2018-09-08 12:54:41 +0300
+Processing by BreweriesController#new as HTML
+  Rendering breweries/new.html.erb within layouts/application
+  Rendered breweries/_form.html.erb (4.1ms)
+  Rendered breweries/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 43ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/breweries" for 127.0.0.1 at 2018-09-08 12:54:48 +0300
+Processing by BreweriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IYvnkRS/eJ9wDehK/T/UDe1fXWTei1vJOsPGNZi5vvyfiZXdpgrHiSc1wCVtAmsj97zrxIpE/hTUzTOPHv6DRA==", "brewery"=>{"name"=>"Suunmyötäinen", "year"=>"2002"}, "commit"=>"Create Brewery"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[36mBrewery Create (0.4ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Suunmyötäinen"], ["year", 2002], ["created_at", "2018-09-08 09:54:48.769675"], ["updated_at", "2018-09-08 09:54:48.769675"]]
+  ↳ app/controllers/breweries_controller.rb:30
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/breweries_controller.rb:30
+Redirected to http://localhost:3000/breweries/3
+Completed 302 Found in 18ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/breweries/3" for 127.0.0.1 at 2018-09-08 12:54:48 +0300
+Processing by BreweriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBrewery Load (0.8ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/breweries_controller.rb:67
+  Rendering breweries/show.html.erb within layouts/application
+  Rendered breweries/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 35.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/breweries" for 127.0.0.1 at 2018-09-08 12:54:50 +0300
+Processing by BreweriesController#index as HTML
+  Rendering breweries/index.html.erb within layouts/application
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/breweries/index.html.erb:15
+  Rendered breweries/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 61ms (Views: 57.5ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mBrewery Load (0.6ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "breweries"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Create (0.3ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Stadin Panimo"], ["year", 1997], ["created_at", "2018-09-08 10:11:08.988471"], ["updated_at", "2018-09-08 10:11:08.988471"]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Create (0.6ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wolfenstein"], ["year", 1040], ["created_at", "2018-09-08 10:11:34.202229"], ["updated_at", "2018-09-08 10:11:34.202229"]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.5ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/breweries" for 127.0.0.1 at 2018-09-08 13:12:18 +0300
+Processing by BreweriesController#index as HTML
+  Rendering breweries/index.html.erb within layouts/application
+  [1m[36mBrewery Load (0.8ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/breweries/index.html.erb:15
+  Rendered breweries/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.5ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "ads"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Wolf"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Wolfenstein"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Pehmeä"], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."year" BETWEEN ? AND ? LIMIT ?[0m  [["year", 1900], ["year", 3000], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE (year<1900) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Pehmeä"], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Pehmeä"], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Pehmeä"], ["LIMIT", 11]]
+  [1m[36mBrewery Load (0.5ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? ORDER BY "breweries"."id" ASC LIMIT ?[0m  [["name", "Pehmeä"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE (id>2) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE (id>2) LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "breweries" WHERE (id>2)[0m
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE (id>2) ORDER BY "breweries"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Create (0.5ms)[0m  [1m[32mINSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kumpulan Panimo"], ["year", 2012], ["created_at", "2018-09-08 10:21:28.287766"], ["updated_at", "2018-09-08 10:21:28.287766"]]
+  [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Kumpulan Panimo"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Update (0.6ms)[0m  [1m[33mUPDATE "breweries" SET "year" = ?, "updated_at" = ? WHERE "breweries"."id" = ?[0m  [["year", 2018], ["updated_at", "2018-09-08 10:23:58.485950"], ["id", 6]]
+  [1m[35m (13.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Kumpulan Panimo"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.5ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."name" = ?[0m  [["name", "Kumpulan Panimo"]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Destroy (2.4ms)[0m  [1m[31mDELETE FROM "breweries" WHERE "breweries"."id" = ?[0m  [["id", 6]]
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Kumpulan Panimo"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBeers (20180908102731)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180908102731_create_beers.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "beers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "style" varchar, "brewery_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180908102731_create_beers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180908102731"]]
+  ↳ bin/rails:9
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mBeer Load (0.4ms)[0m  [1m[34mSELECT  "beers".* FROM "beers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" ORDER BY "breweries"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBrewery Update (0.6ms)[0m  [1m[33mUPDATE "breweries" SET "name" = ?, "updated_at" = ? WHERE "breweries"."id" = ?[0m  [["name", "Koff"], ["updated_at", "2018-09-08 10:29:32.141961"], ["id", 1]]
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.3ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" ORDER BY "breweries"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBeer Create (0.7ms)[0m  [1m[32mINSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "iso 3"], ["style", "Lager"], ["brewery_id", 1], ["created_at", "2018-09-08 10:30:04.552810"], ["updated_at", "2018-09-08 10:30:04.552810"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBeer Create (0.5ms)[0m  [1m[32mINSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Karhu"], ["style", "Lager"], ["brewery_id", 1], ["created_at", "2018-09-08 10:30:17.465977"], ["updated_at", "2018-09-08 10:30:17.465977"]]
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Koff\nkoff.beers.count\n\nkoff\n"], ["LIMIT", 1]]
+  [1m[36mBrewery Load (0.5ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT ?[0m  [["name", "Koff"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "beers" WHERE "beers"."brewery_id" = ?[0m  [["brewery_id", 1]]
+  [1m[36mBeer Load (0.5ms)[0m  [1m[34mSELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" DESC LIMIT ?[0m  [["brewery_id", 1], ["LIMIT", 1]]
+  [1m[36mBeer Load (1.0ms)[0m  [1m[34mSELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" ASC LIMIT ?[0m  [["brewery_id", 1], ["LIMIT", 1]]
+  [1m[36mBeer Load (0.7ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."brewery_id" = ?[0m  [["brewery_id", 1]]
+  [1m[36mBeer Load (0.6ms)[0m  [1m[34mSELECT  "beers".* FROM "beers" ORDER BY "beers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBrewery Load (0.6ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
