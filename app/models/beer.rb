@@ -10,4 +10,8 @@ class Beer < ApplicationRecord
         ratings.map{|r| r.score}.reduce(:+) / ratings.count
     end
 
+    def to_s
+        "#{name} by #{brewery.name}"
+    end
+
 end
