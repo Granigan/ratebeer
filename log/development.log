@@ -5465,3 +5465,118 @@ Processing by BeersController#index as HTML
 Completed 200 OK in 59ms (Views: 56.8ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/beers/new" for 127.0.0.1 at 2018-09-11 21:21:40 +0300
+Processing by BeersController#new as HTML
+  Rendering beers/new.html.erb within layouts/application
+  [1m[36mBrewery Load (0.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beers/_form.html.erb:26
+  Rendered beers/_form.html.erb (6.7ms)
+  Rendered beers/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 39ms (Views: 29.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/beers/new" for 127.0.0.1 at 2018-09-11 21:23:03 +0300
+Processing by BeersController#new as HTML
+  Rendering beers/new.html.erb within layouts/application
+  [1m[36mBrewery Load (0.6ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/views/beers/new.html.erb:3
+  Rendered beers/_form.html.erb (271.9ms)
+  Rendered beers/new.html.erb within layouts/application (276.7ms)
+Completed 500 Internal Server Error in 289ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007f9d124a2930>:0x00007f9d11847fa0>):
+    17:   </div>
+    18: 
+    19:   <div class="field">
+    20:     <%= f.select :style, options_for_select(@styles) %>
+    21:   </div>
+    22: 
+    23:   <div class="field">
+  
+app/views/beers/_form.html.erb:20:in `block in _app_views_beers__form_html_erb__2116655963639548431_70156289988040'
+app/views/beers/_form.html.erb:1:in `_app_views_beers__form_html_erb__2116655963639548431_70156289988040'
+app/views/beers/new.html.erb:3:in `_app_views_beers_new_html_erb__3639410811000578138_70156290265440'
+Started GET "/beers/new" for 127.0.0.1 at 2018-09-11 21:23:34 +0300
+Processing by BeersController#new as HTML
+  Rendering beers/new.html.erb within layouts/application
+  [1m[36mBrewery Load (0.7ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beers/_form.html.erb:25
+  Rendered beers/_form.html.erb (16.0ms)
+  Rendered beers/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 81ms (Views: 72.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/beers" for 127.0.0.1 at 2018-09-11 21:23:54 +0300
+Processing by BeersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6o+SsYliOwOoBgtrSmhMn63EPncIUuoxucQCvmM7KfmSGyv7yz5x4yc74OkHFlBYZezbMDzRrE9bWBJuhxtnfw==", "beer"=>{"name"=>"Olvin Paras", "style"=>"Lager", "brewery_id"=>"2"}, "commit"=>"Create Beer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beers_controller.rb:32
+  [1m[36mBrewery Load (0.4ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/beers_controller.rb:32
+  [1m[36mBeer Create (1.4ms)[0m  [1m[32mINSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Olvin Paras"], ["style", "Lager"], ["brewery_id", 2], ["created_at", "2018-09-11 18:23:54.316650"], ["updated_at", "2018-09-11 18:23:54.316650"]]
+  ↳ app/controllers/beers_controller.rb:32
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beers_controller.rb:32
+Redirected to http://localhost:3000/beers
+Completed 302 Found in 30ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/beers" for 127.0.0.1 at 2018-09-11 21:23:54 +0300
+Processing by BeersController#index as HTML
+  Rendering beers/index.html.erb within layouts/application
+  [1m[36mBeer Load (0.2ms)[0m  [1m[34mSELECT "beers".* FROM "beers"[0m
+  ↳ app/views/beers/index.html.erb:16
+  [1m[36mBrewery Load (0.1ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mBrewery Load (0.1ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mBrewery Load (0.1ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.1ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mBrewery Load (0.1ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  [1m[36mCACHE Brewery Load (0.0ms)[0m  [1m[34mSELECT  "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/beers/index.html.erb:20
+  Rendered beers/index.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.9ms)
+
+
