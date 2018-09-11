@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of ratings</h1>
+<ul>
+    <% @ratings.each do |rating| %>
+    <li> <%= rating %> </li>
+    <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Brewery', new_brewery_path %>
+<%= link_to 'List of Beers', beers_path %>
