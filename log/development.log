@@ -1211,3 +1211,5 @@ Processing by BreweriesController#index as HTML
 Completed 200 OK in 37ms (Views: 33.0ms | ActiveRecord: 1.0ms)
 
 
+  [1m[36mBeer Load (0.2ms)[0m  [1m[34mSELECT  "beers".* FROM "beers" ORDER BY "beers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBeer Load (0.5ms)[0m  [1m[34mSELECT "beers".* FROM "beers"[0m
