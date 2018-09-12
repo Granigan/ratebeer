@@ -5,13 +5,18 @@
 <p>
   <i>Established in <%= @brewery.year %>.</i>
 </p>
-
 <p>
   <strong><%= @brewery.beers.count %> beers by <%= @brewery.name %>:</strong></br>
   <% @brewery.beers.each do |beer| %>
     <%= link_to beer.name, beer %>
   <% end %>
 </p>
-
+<p>
+  <% if @brewery.ratings.empty? %>
+    None of the beers have yet been rated!
+  <% else %>
+    Brewery's beers have a total of <%= pluralize(@brewery.ratings.count, 'rating') %>, with an average of <%= @brewery.average_rating %>/50.
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
