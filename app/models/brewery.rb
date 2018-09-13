@@ -1,4 +1,6 @@
 class Brewery < ApplicationRecord
+    include RatingAverage
+
     has_many :beers, dependent: :destroy
     has_many :ratings, through: :beers
 
@@ -11,10 +13,6 @@ class Brewery < ApplicationRecord
     def restart
         self.year = 2018
         puts "changed year to #{year}"
-    end
-
-    def average_rating
-        self.ratings.map{|r| r.score}.reduce(:+)  / self.ratings.count
     end
 
 end
