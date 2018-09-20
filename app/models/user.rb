@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :beerclubs, through: :memberships
 
   def joinable_clubs
-    Beerclub.where.not(id: Membership.where(user_id: self.id).map{ |m| m.beerclub_id })
+    Beerclub.where.not(id: Membership.where(user_id: id).map(&:beerclub_id))
   end
-
 end
