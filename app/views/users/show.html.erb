@@ -12,7 +12,7 @@
   <h3>Ratings:</h3>
   <ul>
     <% @user.ratings.each do |rating| %>
-      <li><%= rating %>
+      <li><%= rating %> <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' }  %>
     <% end %>
   </ul>
 <% end %>
