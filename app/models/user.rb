@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates_format_of :password, :with => /(?=.*[A-Z].*)(?=.*\d.*)\w{4,}/, 
                         :message => "must contain at least one uppercase letter and one digit."
 
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy
   has_many :beerclubs, through: :memberships
