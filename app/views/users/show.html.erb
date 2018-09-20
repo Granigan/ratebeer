@@ -8,6 +8,18 @@
     Has made <%= pluralize(@user.ratings.count, 'rating') %>. Average rating is <%= @user.average_rating %>.
   <% end %>
 </p>
+<p>
+  <% if @user.beerclubs.empty? %>
+    Is not part of any clubs.
+  <% else %>
+    Is a member of:
+    <ul>
+      <% @user.beerclubs.each do |club| %>
+        <li><%= link_to club.name, club %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
 <% if @user.ratings.any? %>
   <h3>Ratings:</h3>
   <ul>
