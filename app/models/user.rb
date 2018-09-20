@@ -11,4 +11,9 @@ class User < ApplicationRecord
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy
   has_many :beerclubs, through: :memberships
+
+  def joinable_clubs
+    Beerclub.where.not(id: Membership.where(user_id: self.id).map{ |m| m.beerclub_id })
+  end
+
 end
