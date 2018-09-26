@@ -42,21 +42,17 @@ RSpec.describe User, type: :model do
     end
 
     it "is the only rated one if there's only one rating" do
-      beer = FactoryBot.create(:beer)
-      rating = FactoryBot.create(:rating, score:20, beer: beer, user: user)
+      beer = create_beer_with_rating({ user: user }, 20)
 
       expect(user.favourite_beer).to eq(beer)
     end
 
     it "is the one with highest rating if several are rated" do
-      beer1 = FactoryBot.create(:beer)
-      beer2 = FactoryBot.create(:beer)
-      beer3 = FactoryBot.create(:beer)
-      rating1 = FactoryBot.create(:rating, score: 20, beer: beer1, user: user)
-      rating2 = FactoryBot.create(:rating, score: 25, beer: beer2, user: user)
-      rating3 = FactoryBot.create(:rating, score: 9, beer: beer3, user: user)
-
-      expect(user.favourite_beer).to eq(beer2)
+      create_beer_with_rating({ user: user }, 10)
+      create_beer_with_rating({ user: user }, 7)
+      best = create_beer_with_rating({ user: user }, 25)
+      
+      expect(user.favourite_beer).to eq(best)
     end
   end
 
@@ -78,3 +74,14 @@ RSpec.describe User, type: :model do
   end
 end
 
+def create_beer_with_rating(object, score)
+  beer = FactoryBot.create(:beer)
+  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
+  beer
+end
+
+def create_beers_with_many_ratings(object, *scores)
+  scores.each do |s|
+    create_beer_with_rating(object, s)
+  end
+end
