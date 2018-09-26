@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+include Helpers
+
 describe "User" do
   before :each do
     FactoryBot.create :user
@@ -18,20 +20,14 @@ describe "User" do
 
   describe "who has signed up" do
     it "can sign in with right credentials" do
-      visit signin_path
-      fill_in('username', with:'Pekka')
-      fill_in('password', with:'Foobar1')
-      click_button('Log in')
+      sign_in(username: "Pekka", password: "Foobar1")
 
       expect(page).to have_content 'Welcome back!'
       expect(page).to have_content 'Pekka'
     end
 
     it "is redirected back to signin form if wrong credentials give" do
-      visit signin_path
-      fill_in('username', with:'Pekka')
-      fill_in('password', with:'wrong')
-      click_button('Log in')
+      sign_in(username: "Pekka", password: "wrong")
 
       expect(current_path).to eq(signin_path)
       expect(page).to have_content 'User and/or password mismatch.'
