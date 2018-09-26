@@ -15,4 +15,10 @@ class User < ApplicationRecord
   def joinable_clubs
     Beerclub.where.not(id: Membership.where(user_id: id).map(&:beerclub_id))
   end
+
+  def favourite_beer
+    return nil if ratings.empty?
+
+    ratings.order(score: :desc).limit(1).first.beer
+  end
 end
