@@ -34,3 +34,27 @@ describe "User" do
     end
   end
 end
+
+describe "User page" do
+  before :each do
+    user = FactoryBot.create(:user)
+    @ratings = [10, 15, 9]
+    @ratings.each do |score|
+      create_beer_with_rating( {user: user}, score)
+    end
+
+    visit user_path(user)
+  end
+
+  it "lists ratings by user" do
+    @ratings.each do |score|  
+      expect(page).to have_content score
+    end
+  end
+
+  it "lists only user's ratings" do
+    user = FactoryBot.create(:user, username:'Wilma')
+    create_beer_with_rating( {user: user }, 49)
+    expect(page).not_to have_content('49')
+  end
+end

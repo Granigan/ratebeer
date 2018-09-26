@@ -25,10 +25,7 @@ describe "Ratings page" do
         expect(page).to have_content score
       end
     end
-
-
   end
-
 end
 
 
