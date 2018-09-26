@@ -7,3 +7,15 @@ module Helpers
     click_button('Log in')
   end
 end
+
+def create_beer_with_rating(object, score)
+  beer = FactoryBot.create(:beer)
+  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
+  beer
+end
+
+def create_beers_with_many_ratings(object, *scores)
+  scores.each do |s|
+    create_beer_with_rating(object, s)
+  end
+end
