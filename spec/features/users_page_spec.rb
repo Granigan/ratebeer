@@ -37,13 +37,13 @@ end
 
 describe "User page" do
   before :each do
-    user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:user)
     @ratings = [10, 15, 9]
     @ratings.each do |score|
-      create_beer_with_rating( {user: user}, score)
+      create_beer_with_rating( {user: @user}, score)
     end
 
-    visit user_path(user)
+    visit user_path(@user)
   end
 
   it "lists ratings by user" do
@@ -57,4 +57,14 @@ describe "User page" do
     create_beer_with_rating( {user: user }, 49)
     expect(page).not_to have_content('49')
   end
+
+
+  it "deletes a rating, it is removed from db" do
+    sign_in(username:"Pekka", password:"Foobar1")
+    visit user_path(@user)
+    expect{
+      click_link('delete', match: :first)
+    }.to change{Rating.count}.from(3).to(2)
+  end
+
 end
