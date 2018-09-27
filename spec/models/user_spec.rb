@@ -110,9 +110,9 @@ RSpec.describe User, type: :model do
       expect(user.favourite_brewery).to eq('None')
     end
 
-    it "is the make of the only rated beer" do
+    it "is the maker of the only rated beer" do
       create_beer_with_rating_and_brewery({user: user}, 10, brewery)
-      expect(user.favourite_brewery).to eq(brewery)
+      expect(user.favourite_brewery).to eq(brewery.name)
     end
 
     it "is the brewery with highest average rating" do

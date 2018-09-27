@@ -62,7 +62,6 @@ class User < ApplicationRecord
         best_brewery = b
       end
     end
-
     best_brewery
   end
 
