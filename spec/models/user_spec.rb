@@ -57,13 +57,13 @@ RSpec.describe User, type: :model do
     end
 
     it "without ratings does not have one" do
-      expect(user.favourite_beer).to eq(nil)
+      expect(user.favourite_beer).to eq('None')
     end
 
     it "is the only rated one if there's only one rating" do
       beer = create_beer_with_rating({ user: user }, 20)
 
-      expect(user.favourite_beer).to eq(beer)
+      expect(user.favourite_beer).to eq(beer.name)
     end
 
     it "is the one with highest rating if several are rated" do
@@ -71,7 +71,7 @@ RSpec.describe User, type: :model do
       create_beer_with_rating({ user: user }, 7)
       best = create_beer_with_rating({ user: user }, 25)
       
-      expect(user.favourite_beer).to eq(best)
+      expect(user.favourite_beer).to eq(best.name)
     end
   end
 
@@ -100,6 +100,30 @@ RSpec.describe User, type: :model do
       expect(user.favourite_style).to eq('best')
     end
 
+  end
+
+  describe "favourite brewery" do
+    let(:user){ FactoryBot.create(:user) }
+    let(:brewery) { FactoryBot.create(:brewery, name: 'test')}
+
+    it "is none if there are no ratings by user" do
+      expect(user.favourite_brewery).to eq('None')
+    end
+
+    it "is the make of the only rated beer" do
+      create_beer_with_rating_and_brewery({user: user}, 10, brewery)
+      expect(user.favourite_brewery).to eq(brewery)
+    end
+
+    it "is the brewery with highest average rating" do
+      best = FactoryBot.create(:brewery, name: 'best')
+      create_beer_with_rating_and_brewery({user: user}, 10, brewery)
+      create_beer_with_rating_and_brewery({user: user}, 30, brewery)
+      create_beer_with_rating_and_brewery({user: user}, 20, best)
+      create_beer_with_rating_and_brewery({user: user}, 5, brewery)
+
+      expect(user.favourite_brewery).to eq(best.name)
+    end
   end
 
 end
