@@ -32,6 +32,23 @@ RSpec.describe User, type: :model do
     expect(User.count).to eq(0)
   end
 
+  describe "with a proper password" do
+    let(:user) { FactoryBot.create(:user) }
+    
+    it "is saved" do
+      expect(user).to be_valid
+      expect(User.count).to eq(1)
+    end
+
+    it "and with two ratings, has the correct average rating" do
+      FactoryBot.create(:rating, score:10, user: user)
+      FactoryBot.create(:rating, score:20, user: user)
+
+      expect(user.ratings.count).to eq(2)
+      expect(user.average_rating).to eq(15)
+    end
+  end
+
   describe "favourite beer" do
     let(:user){ FactoryBot.create(:user) }
 
@@ -58,20 +75,31 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "with a proper password" do
-    let(:user) { FactoryBot.create(:user) }
+  describe "favourite style" do
+    let(:user){ FactoryBot.create(:user) }
     
-    it "is saved" do
-      expect(user).to be_valid
-      expect(User.count).to eq(1)
+    it "has a method for determining one" do
+      expect(user).to respond_to(:favourite_style)
     end
 
-    it "and with two ratings, has the correct average rating" do
-      FactoryBot.create(:rating, score:10, user: user)
-      FactoryBot.create(:rating, score:20, user: user)
-
-      expect(user.ratings.count).to eq(2)
-      expect(user.average_rating).to eq(15)
+    it "is none if there are no ratings by user" do
+      expect(user.favourite_style).to eq('None')
     end
+
+    it "is the style of only rated beer" do
+      create_beer_with_rating_and_with_style( {user: user}, 1, 'test')
+      expect(user.favourite_style).to eq('test')
+    end
+
+    it "is the style with highest average rating" do
+      create_beer_with_rating_and_with_style( {user: user}, 10, 'test')
+      create_beer_with_rating_and_with_style( {user: user}, 30, 'test')
+      create_beer_with_rating_and_with_style( {user: user}, 20, 'best')
+      create_beer_with_rating_and_with_style( {user: user}, 5, 'test')
+
+      expect(user.favourite_style).to eq('best')
+    end
+
   end
+
 end

@@ -19,3 +19,10 @@ def create_beers_with_many_ratings(object, *scores)
     create_beer_with_rating(object, s)
   end
 end
+
+def create_beer_with_rating_and_with_style(object, score, style)
+  beer = FactoryBot.create(:beer, style: style)
+  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
+  beer
+end
+
