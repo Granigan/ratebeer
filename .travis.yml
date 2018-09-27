@@ -1,8 +1,12 @@
 language: ruby
-
 rvm:
 - 2.5.1
-
 script:
 - bundle exec rails db:migrate
 - bundle exec rspec -fd spec
+deploy:
+  provider: heroku
+  app: infinite-brook-26566
+  api_key:
+    secure: OVictN3Qr+M1ktBWd7DwjK9etXH9tFQsoX+GDqPcD4pC6VghatE4XqcZdnZoJi/l82aF41yKSHT2JIADwW1Aa/JP8UEE6Alj3uCLDozqg/HjrKcUwP9Xgoj7L8Z4UH2STrhmDollKyU/fILNd7UesZiTIjYLual8UudBL+C/YvqYVanUljWj08ZU7zticXbKm8U4d7q/uz2kIUWz9MykCs76ZJG9tq326jSte6Lyt589ROzQK+KGYGj1ot4dwVjf4SVYTyfwxWWPRpm+vahPRSuL7V+6StrYVKbg5iH8368byYVjaIEav7k2KmvcPUg6+Gz6G6hTA6Rcox9JkbjPbXH7ZueUi2n3GQjCMf2v9b3f7oknzknwILryxS0vUrnQwLQ4b4QwdllhClbgIFBai8QC0LiCNh1Yje3sQm0xf+6m4BSC6dAuqxgLp0Afp2lBe/omfz7SR4pA2iZtW2Pnp/+zLwP0RdijfqidVC93DBDxmluqeuY4nP7OwuM7Cfn30WRncW3cSVgp5oX2EbmMBO0p1LBHpmOHqveBEUe4kTY7fN8JxbPZbN6ov9izcRx7uFTq6oTdAt8S6ZsL02j+e1agmCnV2RI3qOsoqD0NH4tv0NLfB/XVdSq6npRhZPT96rSzukhNZmBewxyMDLXMqJMaiP1zuSaF2VSsGvEaOHU=
+  run: "rails db:migrate"
