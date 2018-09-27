@@ -24,7 +24,6 @@ class User < ApplicationRecord
 
   def favourite_style
     return 'None' unless ratings.present?
-    return ratings.first.beer.style if ratings.count == 1
 
     find_highest_averaged_style
   end
@@ -49,7 +48,6 @@ class User < ApplicationRecord
 
   def favourite_brewery
     return 'None' unless ratings.present?
-    return ratings.first.beer.brewery if ratings.count == 1
 
     find_highest_averaged_brewery.name
   end
