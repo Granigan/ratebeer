@@ -18,12 +18,14 @@ class User < ApplicationRecord
 
   def favourite_beer
     return 'None' if ratings.empty?
+
     ratings.order(score: :desc).limit(1).first.beer.name
   end
 
   def favourite_style
     return 'None' unless ratings.present?
     return ratings.first.beer.style if ratings.count == 1
+
     find_highest_averaged_style
   end
 
@@ -31,7 +33,7 @@ class User < ApplicationRecord
     best_avg = 0.0
     best_style = "None"
 
-    ratings.map{|r| r.beer.style}.uniq.each do |s|
+    ratings.map{ |r| r.beer.style }.uniq.each do |s|
       avg = average_rating_by_style(s)
       if avg > best_avg
         best_avg = average_rating_by_style(s)
@@ -41,21 +43,21 @@ class User < ApplicationRecord
     best_style
   end
 
-
   def average_rating_by_style(style)
-    ratings.find_all{|r| r.beer.style == style}.map{|r| r.score}.reduce(:+) /ratings.find_all{|r| r.beer.style == style}.count.to_f
+    ratings.find_all{ |r| r.beer.style == style }.map(&:score).reduce(:+) / ratings.find_all{ |r| r.beer.style == style }.count.to_f
   end
 
   def favourite_brewery
-    return 'None' unless ratings.present? 
+    return 'None' unless ratings.present?
     return ratings.first.beer.brewery if ratings.count == 1
+
     find_highest_averaged_brewery.name
   end
 
   def find_highest_averaged_brewery
     best_avg = 0.0
     best_brewery = nil
-    ratings.map{|r| r.beer.brewery}.uniq.each do |b| 
+    ratings.map{ |r| r.beer.brewery }.uniq.each do |b|
       avg = average_rating_by_brewery(b)
       if avg > best_avg
         best_avg = avg
@@ -67,9 +69,8 @@ class User < ApplicationRecord
   end
 
   def average_rating_by_brewery(brewery)
-    ratings.find_all{|r| r.beer.brewery.id == brewery.id}.
-      map{|r| r.score}.reduce(:+) / ratings.
-      find_all{|r| r.beer.brewery.id == brewery.id}.count.to_f
+    ratings.find_all{ |r| r.beer.brewery.id == brewery.id }.
+      map(&:score).reduce(:+) / ratings.
+                                find_all{ |r| r.beer.brewery.id == brewery.id }.count.to_f
   end
-
 end
