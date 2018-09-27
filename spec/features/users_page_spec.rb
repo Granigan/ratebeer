@@ -35,12 +35,13 @@ describe "User" do
   end
 end
 
-describe "User page" do
+describe "User page with ratings" do
   before :each do
     @user = FactoryBot.create(:user)
+    @brewery = FactoryBot.create(:brewery, name: 'bestbrewery')
     @ratings = [10, 15, 9]
     @ratings.each do |score|
-      create_beer_with_rating( {user: @user}, score)
+      create_beer_with_everything( {user: @user}, 'bestbeer', score, @brewery, 'beststyle')
     end
 
     visit user_path(@user)
@@ -66,5 +67,21 @@ describe "User page" do
       click_link('delete', match: :first)
     }.to change{Rating.count}.from(3).to(2)
   end
+
+  it "shows favourite beer" do
+    visit user_path(@user)
+    expect(page).to have_content ': bestbeer'
+  end
+
+  it "shows favourite brewery" do
+    visit user_path(@user)
+    expect(page).to have_content ': bestbrewery'
+  end
+
+  it "shows favourite style" do
+    visit user_path(@user)
+    expect(page).to have_content ': beststyle'
+  end
+
 
 end

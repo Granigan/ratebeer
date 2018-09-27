@@ -33,3 +33,9 @@ def create_beer_with_rating_and_brewery(object, score, brewery)
   FactoryBot.create(:rating, beer:beer, score: score, user: object[:user] )
   beer
 end
+
+def create_beer_with_everything(object, name, score, brewery, style)
+  beer = FactoryBot.create(:beer, name: name, style:style, brewery_id: brewery.id)
+  FactoryBot.create(:rating, beer:beer, score: score, user: object[:user] )
+  beer
+end
