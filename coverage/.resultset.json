@@ -141,9 +141,13 @@
         1,
         null,
         1,
-        92,
+        111,
         null,
-        61,
+        67,
+        null,
+        null,
+        1,
+        4,
         null,
         null
       ],
@@ -254,6 +258,7 @@
         null
       ],
       "/home/local/tgtapio/courses/wedror/ratebeer/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -413,14 +418,6 @@
         1,
         0,
         null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
         null
       ],
       "/home/local/tgtapio/courses/wedror/ratebeer/app/controllers/ratings_controller.rb": [
@@ -460,6 +457,7 @@
         0
       ],
       "/home/local/tgtapio/courses/wedror/ratebeer/app/controllers/beerclubs_controller.rb": [
+        0,
         0,
         0,
         null,
@@ -634,6 +632,6 @@
         0
       ]
     },
-    "timestamp": 1538031163
+    "timestamp": 1538035010
   }
 }

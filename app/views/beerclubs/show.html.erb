@@ -16,4 +16,4 @@
 <% end %>
 </p>
 
-<%= link_to 'Edit', edit_beerclub_path(@beerclub) %>
+<%= link_to 'Edit', edit_beerclub_path(@beerclub) if current_user %>
