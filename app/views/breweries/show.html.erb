@@ -18,5 +18,6 @@
     Brewery's beers have a total of <%= pluralize(@brewery.ratings.count, 'rating') %>, with an average of <%= @brewery.average_rating %>.
   <% end %>
 </p>
+
 <%= link_to 'Edit', edit_brewery_path(@brewery) if current_user %>
 <%= link_to 'Back', breweries_path %>
