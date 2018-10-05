@@ -8,13 +8,14 @@ Rails.application.routes.draw do
 
   root 'breweries#index'
   resources :ratings, only: [:index, :new, :create, :destroy]
-  resource :session, only: [:new, :create, :destroy]
 
   get 'signup', to: 'users#new'
+
+  resource :session, only: [:new, :create, :destroy]
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 
-  get 'places', to: 'places#index'
+  resources :places, only: [:index, :show]
   post 'places', to: 'places#search'
 
 end
