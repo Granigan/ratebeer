@@ -23,4 +23,11 @@
   <% end %>
 <% end %>
 
+<% if current_user && current_user.is_a_member(@beerclub.id) %>
+  <%= form_for(@membership, method: "delete") do |f| %>
+    <%= f.hidden_field :beerclub_id %>
+    <%= f.submit value: "Quit the club." %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_beerclub_path(@beerclub) if current_user %>
