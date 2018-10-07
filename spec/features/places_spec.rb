@@ -5,6 +5,9 @@ describe "Places" do
     allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
       []
     )
+    allow(ApixuApi).to receive(:weather_in).with("kumpula").and_return(
+      []
+    )
 
     visit places_path
     fill_in('city', with: 'kumpula')
@@ -17,6 +20,8 @@ describe "Places" do
     allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
       [ Place.new( name:"Oljenkorsi", id: 1 ) ]
     )
+
+    allow(ApixuApi).to receive(:weather_in).with("kumpula").and_return(nil)
 
     visit places_path
     fill_in('city', with: 'kumpula')
@@ -31,6 +36,8 @@ describe "Places" do
         Place.new( name:"Kaislanvarsi", id: 2 ),
         Place.new( name:"Rämeruusu", id: 3 ), ]
     )
+
+    allow(ApixuApi).to receive(:weather_in).with("kumpula").and_return(nil)
 
     visit places_path
     fill_in('city', with: 'kumpula')

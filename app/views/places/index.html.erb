@@ -7,6 +7,16 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if @weather %>
+  <p>
+    Current beer weather in <%= @weather['location']['name'] %>:</br>
+    <%= @weather['current']['condition']['text'] %>, 
+    <%= @weather['current']['temp_c']%> Celsius, 
+    wind speed <%= @weather['current']['wind_kph'] %>m/s.
+    <img src=<%= @weather['current']['condition']['icon'] %> >
+  </p>
+<% end %>
+
 <% if @places %>
   <table>
     <thead>
