@@ -16,10 +16,9 @@ class User < ApplicationRecord
     Beerclub.where.not(id: Membership.where(user_id: id).map(&:beerclub_id))
   end
 
-  def is_a_member(club_id)
+  def member?(club_id)
     Membership.where(user_id: id, beerclub_id: club_id).present?
   end
-
 
   def favourite_beer
     return 'None' if ratings.empty?
@@ -29,6 +28,7 @@ class User < ApplicationRecord
 
   def favourite_style
     return 'None' unless ratings.present?
+
     find_highest_averaged_style
   end
 

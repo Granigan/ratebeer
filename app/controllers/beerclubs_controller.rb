@@ -14,7 +14,7 @@ class BeerclubsController < ApplicationController
     if !current_user || !Membership.find_by(user_id: current_user.id, beerclub_id: @beerclub.id).present?
       @membership = Membership.new
       @membership.beerclub = @beerclub
-    else 
+    else
       @membership = Membership.find_by(user_id: current_user.id, beerclub_id: @beerclub.id)
     end
   end

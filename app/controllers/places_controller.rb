@@ -18,5 +18,4 @@ class PlacesController < ApplicationController
   def set_place
     @place = BeermappingApi.get_place(params[:id])
   end
-
 end

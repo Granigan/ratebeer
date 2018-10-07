@@ -11,6 +11,7 @@ class Beer < ApplicationRecord
 
   def average
     return 0 if ratings.empty?
+
     average_rating
   end
 
