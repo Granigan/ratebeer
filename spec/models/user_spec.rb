@@ -77,6 +77,7 @@ RSpec.describe User, type: :model do
 
   describe "favourite style" do
     let(:user){ FactoryBot.create(:user) }
+    let(:style){ FactoryBot.create(:style, name: "beststyle")}
     
     it "has a method for determining one" do
       expect(user).to respond_to(:favourite_style)
@@ -87,8 +88,8 @@ RSpec.describe User, type: :model do
     end
 
     it "is the style of only rated beer" do
-      create_beer_with_rating_and_with_style( {user: user}, 1, 'test')
-      expect(user.favourite_style).to eq('test')
+      create_beer_with_rating_and_with_style( {user: user}, 1, style)
+      expect(user.favourite_style).to eq(style)
     end
 
     it "is the style with highest average rating" do

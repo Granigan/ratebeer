@@ -39,9 +39,10 @@ describe "User page with ratings" do
   before :each do
     @user = FactoryBot.create(:user)
     @brewery = FactoryBot.create(:brewery, name: 'bestbrewery')
+    @style = FactoryBot.create(:style, name: 'beststyle')
     @ratings = [10, 15, 9]
     @ratings.each do |score|
-      create_beer_with_everything( {user: @user}, 'bestbeer', score, @brewery, 'beststyle')
+      create_beer_with_everything( {user: @user}, 'bestbeer', score, @brewery, @style)
     end
 
     visit user_path(@user)

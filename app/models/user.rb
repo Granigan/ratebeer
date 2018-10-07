@@ -29,7 +29,6 @@ class User < ApplicationRecord
 
   def favourite_style
     return 'None' unless ratings.present?
-
     find_highest_averaged_style
   end
 

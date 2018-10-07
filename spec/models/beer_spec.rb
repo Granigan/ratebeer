@@ -17,7 +17,8 @@ RSpec.describe Beer, type: :model do
 
   describe "with a name, a style, and a brewery" do
     let(:test_brewery) {Brewery.new name:"test", year:2000}
-    let(:beer) {Beer.create name:"testbeer", style:"teststyle", 
+    let(:teststyle) {Style.new name: "teststyle", description: ''}
+    let(:beer) {Beer.create name:"testbeer", style: teststyle, 
       brewery:test_brewery}
 
     it "is saved" do
