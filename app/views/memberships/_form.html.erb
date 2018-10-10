@@ -3,7 +3,7 @@
   <%= form_for(@membership) do |f| %>
       <%= f.select :beerclub_id, 
           options_from_collection_for_select(@beerclubs, :id, :name) %>
-      <%= f.submit %>
+      <%= f.submit class:"btn btn-success" %>
   <% end %>
 <% else %>
   <h3>You're already in all the clubs!</h3>

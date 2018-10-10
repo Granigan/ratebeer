@@ -29,7 +29,7 @@
   <%= form_for(@rating) do |f| %>
     <%= f.hidden_field :beer_id %>
     Score: <%= f.number_field :score %>
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-secondary" %>
   <% end %>
 <% end %>
 

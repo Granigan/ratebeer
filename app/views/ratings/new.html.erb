@@ -17,5 +17,5 @@
         options_from_collection_for_select(@beers, :id, :to_s, selected: @rating.beer_id) %>
     score: <%= f.number_field :score %>
     
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-secondary" %>
 <% end %>

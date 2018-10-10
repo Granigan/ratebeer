@@ -19,14 +19,14 @@
 <% if current_user && !current_user.member?(@beerclub.id) %>
   <%= form_for(@membership) do |f| %>
     <%= f.hidden_field :beerclub_id %>
-    <%= f.submit value: "Join this club!" %>
+    <%= f.submit value: "Join this club!", class:"btn btn-success" %>
   <% end %>
 <% end %>
 
 <% if current_user && current_user.member?(@beerclub.id) %>
   <%= form_for(@membership, method: "delete") do |f| %>
     <%= f.hidden_field :beerclub_id %>
-    <%= f.submit value: "Quit the club." %>
+    <%= f.submit value: "Quit the club.", class:"btn btn-danger" %>
   <% end %>
 <% end %>
 
