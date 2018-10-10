@@ -11,24 +11,58 @@
 
   <body>
    
-    <div class="navibar">
-      <%= link_to 'Breweries', breweries_path %>
-      <%= link_to 'Styles', styles_path %>
-      <%= link_to 'Beers', beers_path %>
-      <%= link_to 'Ratings', ratings_path %>
-      <%= link_to 'Users', users_path %>
-      <%= link_to 'Clubs', beerclubs_path %>
-      <%= link_to 'Search', places_path %> | 
-    <% if current_user %>
-      <%= link_to current_user.username, current_user %>
-      <%= link_to 'Rate a Beer', new_rating_path %>
-      <%= link_to 'Join a Club', new_membership_path %>
-      <%= link_to 'Sign out', signout_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', signin_path %>
-      <%= link_to 'Sign up', signup_path %>
-    <% end %>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="buttn" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Breweries', breweries_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Beers', beers_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Styles', styles_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Ratings', ratings_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Clubs', beerclubs_path, { class: "nav-link" } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Search', places_path, { class: "nav-link" } %>
+          </li>
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to current_user.username, current_user, { class: "nav-link" } %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Rate a Beer', new_rating_path, { class: "nav-link" } %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Join a Club', new_membership_path, { class: "nav-bar" } %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign out', signout_path, { class: "nav-link", method: :delete } %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+                <%= link_to 'Sign in', signin_path, { class: "nav-bar" } %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign up', signup_path, { class: "nav-bar" } %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
     <%= yield %>
 
