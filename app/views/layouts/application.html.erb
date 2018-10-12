@@ -46,7 +46,7 @@
                 <%= current_user.username %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to current_user.username, "My page", { class: "dropdown-item" } %>
+                <%= link_to 'My page', current_user, { class: "dropdown-item" } %>
                 <%= link_to 'Rate a Beer', new_rating_path, { class: "dropdown-item" } %>
                 <%= link_to 'Join a Club', new_membership_path, { class: "dropdown-item" } %>
                 <%= link_to 'Sign out', signout_path, { class: "dropdown-item", method: :delete } %>

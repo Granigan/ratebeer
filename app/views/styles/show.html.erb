@@ -11,9 +11,9 @@
 <% if @style.beers.present? %>
   <p>
     <strong>Beers: </strong></br>
-    <ul>
+    <ul class="list-group">
       <% @style.beers.each do |b| %>
-        <li><%= link_to b.name, b %></li>
+        <li class="list-group-item"><%= link_to b.name, b %></li>
       <% end %>
     </ul>
   </p>
