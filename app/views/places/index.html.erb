@@ -2,7 +2,7 @@
 
 <%= form_tag places_path do %>
   city <%= text_field_tag :city, params[:city] %>
-  <%= submit_tag "Search" class:"btn btn-secondary" %>
+  <%= submit_tag "Search", class:"btn btn-secondary" %>
 <% end %>
 
 <p id="notice"></p>
