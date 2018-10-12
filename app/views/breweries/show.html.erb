@@ -1,6 +1,12 @@
 <p id="notice"></p>
 
-<h2><%= @brewery.name %></h2>
+<h2>
+  <%= @brewery.name %>
+  <% if not @brewery.active %>
+    <span class="badge badge-info">Closed down</span>
+  <% end %>
+</h2>
+
 
 <p>
   <i>Established in <%= @brewery.year %>.</i>
