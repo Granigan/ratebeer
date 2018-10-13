@@ -9,7 +9,7 @@ class Brewery < ApplicationRecord
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
-  scope :active, -> { where active: true}
+  scope :active, -> { where active: true }
   scope :retired, -> { where active: [nil, false] }
 
   def year_cannot_be_in_the_future
@@ -26,8 +26,8 @@ class Brewery < ApplicationRecord
     self.year = 2018
     puts "changed year to #{year}"
   end
-  
-  def self.top_rated(n)
-    self.all.sort_by{ |b| -(b.average_rating || 0) }.first(n)
+
+  def self.top_rated(amount)
+    all.sort_by{ |b| -(b.average_rating || 0) }.first(amount)
   end
 end
