@@ -6,6 +6,8 @@
     <span class="badge badge-info">Closed down</span>
   <% end %>
 </h2>
+<%= link_to "Toggle status", toggle_activity_brewery_path(@brewery.id), 
+  method: :post, class: "btn btn-primary" %>
 
 
 <p>
@@ -25,5 +27,4 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) if current_user %>
-<%= link_to 'Back', breweries_path %>
+<%= edit_and_destroy_buttons(@brewery) %>
