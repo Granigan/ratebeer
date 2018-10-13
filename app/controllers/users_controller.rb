@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_user_is_admin, only: [:destroy, :toggle_account_status]
 
   # GET /users
   # GET /users.json
@@ -63,6 +64,15 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def toggle_account_status
+    u = User.find(params[:id])
+    u.update_attribute :banned, !u.banned
+
+    new_status = u.banned? ? "closed" : "active"
+    redirect_to u, notice: "User account status changed to #{new_status}"
+  end
+
 
   private
 

@@ -1,6 +1,16 @@
 <p id="notice"></p>
 
-<h2><%= @user.username %></h2>
+<h2><%= @user.username %>
+  <% if admin_user %>
+    <% if @user.banned %>
+      <span class="badge badge-danger">Banned</span>
+    <% else %>
+      <span class="badge badge-info">Active</span>
+    <% end %>
+    <%= link_to "Toggle status", toggle_account_status_user_path(@user.id), 
+    method: :post, class: "btn btn-primary" %>
+  <% end %>
+</h2>
 <p>
   <% if @user.ratings.empty? %>
     Has not yet rated any beers.
