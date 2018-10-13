@@ -1,12 +1,22 @@
 <p id="notice"></p>
-
 <h2>Ratings</h2>
-<h3>Top-3 Breweries</h3>
-<%= render 'table', toplist: @breweries %>
-<h3>Top-3 Beers</h3>
-<%= render 'table', toplist: @beers %>
-<h3>Top-3 Styles</h3>
-<%= render 'table', toplist: @styles %>
+
+<div class="row">
+  <div class="col-sm-4">
+    <p class="h5">Top-3 Breweries</p>
+  </div>
+  <div class="col-sm-4">
+    <p class="h5">Top-3 Beers</p>
+  </div>
+  <div class="col-sm-4">
+    <p class="h5">Top-3 Styles</p>
+  </div>
+</div>
+<div class="row">
+  <%= render 'table', toplist: @breweries %>
+  <%= render 'table', toplist: @beers %>
+  <%= render 'table', toplist: @styles %>
+</div>
 
 <h3>Top-3 Raters</h3>
 <table class="table table-hover">
