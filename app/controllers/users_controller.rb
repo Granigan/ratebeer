@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_user_is_admin, only: [:destroy, :toggle_account_status]
+  before_action :ensure_user_is_admin, only: [:toggle_account_status]
 
   # GET /users
   # GET /users.json
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    return unless @user == current_user
+    return unless @user == current_user || @user.admin_user?
 
     session[:user_id] = nil
     @user.destroy

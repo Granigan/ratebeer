@@ -1,7 +1,7 @@
 <p id="notice"></p>
 
 <h2><%= @user.username %>
-  <% if admin_user %>
+  <% if admin_user? %>
     <% if @user.banned %>
       <span class="badge badge-danger">Banned</span>
     <% else %>
