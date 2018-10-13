@@ -5,8 +5,8 @@ include Helpers
 describe "Ratings page" do
   it "should have no ratings before being created" do
     visit ratings_path
-    expect(page).to have_content 'List of Ratings'
-    expect(page).to have_content 'Number of Ratings: 0'
+    expect(page).to have_content 'Ratings'
+    expect(page).to have_content 'Total number of ratings: 0'
   end
 
   describe "when ratings exist" do
@@ -20,7 +20,7 @@ describe "Ratings page" do
     end
 
     it "lists all ratings and their total number" do
-      expect(page).to have_content 'Number of Ratings: 3'
+      expect(page).to have_content 'Total number of ratings: 3'
       @ratings.each do |score|
         expect(page).to have_content score
       end

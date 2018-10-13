@@ -1,10 +1,11 @@
 <p id="notice"></p>
 
-<h1>List of Ratings</h1>
-<p>Number of Ratings: <%= @ratings.count %></p>
+<h1>Ratings</h1>
+<p>Total number of ratings: <%= @ratings.count %></p>
+<h3>Recent ratings:</h3>
 <ul class="list-group">
-  <% @ratings.each do |rating| %>
-    <li class="list-group-item"> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+  <% @ratings.recent.each do |rating| %>
+    <li class="list-group-item"> <%= rating %></br>rated by <%= link_to rating.user.username, rating.user %> at <%= rating.created_at %></li>
   <% end %>
 </ul>
 
