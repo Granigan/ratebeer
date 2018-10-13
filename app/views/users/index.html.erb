@@ -13,8 +13,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to user.username, user %></td>
+        <% if admin_user? && user.banned %>
+          <td><span class="badge badge-danger">Banned</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
