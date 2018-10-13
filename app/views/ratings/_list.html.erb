@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-9">
+    Top-3 Breweries
+    <div class="row">
+      <div class="col-8 col-sm-6">
+      </div>
+      <div class="col-4 col-sm-6">
+        average
+      </div>
+    </div>
+    <% @breweries.top_rated(3).each do |brewery| %>
+      <div class="row">
+        <div class="col-8 col-sm-6">
+          <%= link_to brewery.name, brewery %>
+        </div>
+        <div class="col-4 col-sm-6">
+          <%= brewery.average_rating %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

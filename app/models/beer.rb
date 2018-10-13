@@ -7,7 +7,6 @@ class Beer < ApplicationRecord
   belongs_to :style
   has_many :ratings, dependent: :destroy
   has_many :raters, through: :ratings, source: :user
-  #  has_many :raters, -> { uniq }, through: :ratings, source: :user
 
   def average
     return 0 if ratings.empty?
@@ -17,5 +16,9 @@ class Beer < ApplicationRecord
 
   def to_s
     "#{name} by #{brewery.name}"
+  end
+
+  def self.top_rated(n)
+    self.all.sort_by{ |b| -(b.average_rating || 0) }.first(n)
   end
 end

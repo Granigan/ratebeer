@@ -74,4 +74,9 @@ class User < ApplicationRecord
       map(&:score).reduce(:+) / ratings.
                                 find_all{ |r| r.beer.brewery.id == brewery.id }.count.to_f
   end
+
+  def self.top_raters(n)
+    self.all.sort_by{ |u| -(u.ratings.count || 0) }.first(n)
+  end
+
 end
