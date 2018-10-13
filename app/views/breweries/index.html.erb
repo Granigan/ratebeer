@@ -1,51 +1,15 @@
 <p id="notice"></p>
 
 <h1>Breweries total: <%= @breweries.count %> </h1>
-<p>Number of Breweries: <%= @active_breweries.count %> </p>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2>Active Breweries: <%= @active_breweries.count %> </h2>
 
-  <tbody>
-    <% @active_breweries.each do |brewery| %>
-      <tr>
-        <td><%= link_to brewery.name, brewery %></td>
-        <td><%= brewery.year %></td>
-        <td><%= link_to 'Edit', edit_brewery_path(brewery) if current_user %></td>
-        <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } if current_user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list', breweries: @active_breweries %>
 
-<br>
+<h2>Closed Breweries: <%= @retired_breweries.count %></h2>
 
-<p>Number of Closed Breweries: <%= @retired_breweries.count %> </p>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render 'list', breweries: @retired_breweries%>
 
-  <tbody>
-    <% @retired_breweries.each do |brewery| %>
-      <tr>
-        <td><%= link_to brewery.name, brewery %></td>
-        <td><%= brewery.year %></td>
-        <td><%= link_to 'Edit', edit_brewery_path(brewery) if current_user %></td>
-        <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } if current_user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</br>
 
 <%= link_to 'New Brewery', new_brewery_path %>
 <%= link_to 'List of Beers', beers_path %>
