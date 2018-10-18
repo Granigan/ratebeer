@@ -1,23 +1,55 @@
 const BEERS = {}
 
 BEERS.show = () => {
-  const beer_list = []
+  $("#beertable tr:gt(0)").remove()
+  const table = $("#beertable")
 
   BEERS.list.forEach((beer) => {
-    beer_list.push('<li>' + beer['name'] + '</li>')
+    table.append('<tr>'
+    + '<td>' + beer['name'] + '</td>'
+    + '<td>' + beer['style']['name'] + '</td>'
+    + '<td>' + beer['brewery']['name'] + '</td>'
+    + '</tr>')
   })
-
-  $('#beers').html('<ul>' + beer_list.join('') + '</ul>')
 }
 
-BEERS.reverse = () => {
-  BEERS.list.reverse()
+BEERS.sort_by_name = () => {
+  BEERS.list.sort((a, b) => {
+    return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
+  })
+}
+BEERS.sort_by_style = () => {
+  BEERS.list.sort((a, b) => {
+    return a.style.name.toUpperCase().localeCompare(b.style.name.toUpperCase())
+  })
+}
+
+BEERS.sort_by_brewery = () => {
+  BEERS.list.sort((a, b) => {
+    return a.brewery.name.toUpperCase().localeCompare(b.brewery.name.toUpperCase());
+  })
 }
 
 document.addEventListener("turbolinks:load", () => {
-  $("#reverse").click((e) => {
+  if ($("#beertable").length == 0) {
+    return
+  }
+
+  $("#name").click((e) => {
     e.preventDefault()
-    BEERS.reverse()
+    BEERS.sort_by_name()
+    BEERS.show();
+  })
+
+  $("#style").click((e) => {
+    e.preventDefault()
+    BEERS.sort_by_style()
+    BEERS.show()
+  })
+
+  $("#brewery").click((e) => {
+    e.preventDefault()
+    BEERS.sort_by_brewery()
     BEERS.show()
   })
 
