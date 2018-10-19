@@ -10,7 +10,7 @@ describe "Beerlist page" do
       Capybara::Selenium::Driver.new app,
         browser: :chrome,
         desired_capabilities: capabilities
-    end
+    end 
     WebMock.disable_net_connect!(allow_localhost: true)
   end
 
@@ -30,4 +30,12 @@ describe "Beerlist page" do
     visit beerlist_path
     expect(page).to have_content "Nikolai"
   end
+
+  it "sorts beers by name by default", js:true do
+    visit beerlist_path
+    expect(find('table').find('tr:nth-child(2)')).to have_content "Fastenbier"
+    expect(find('table').find('tr:nth-child(3)')).to have_content "Lechte Weisse"
+    expect(find('table').find('tr:nth-child(4)')).to have_content "Nikolai"
+  end
+
 end
