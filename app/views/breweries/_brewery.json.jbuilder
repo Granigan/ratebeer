@@ -1,2 +1,2 @@
 json.extract! brewery, :id, :name, :year, :active
-json.count brewery.beers.count
+json.beers brewery.beers.count
