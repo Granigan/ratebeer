@@ -15,7 +15,7 @@ BEERS.show = () => {
 
 BEERS.sort_by_name = () => {
   BEERS.list.sort((a, b) => {
-    return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
+    return a.name.toUpperCase().localeCompare(b.name.toUpperCase())
   })
 }
 BEERS.sort_by_style = () => {
@@ -26,7 +26,7 @@ BEERS.sort_by_style = () => {
 
 BEERS.sort_by_brewery = () => {
   BEERS.list.sort((a, b) => {
-    return a.brewery.name.toUpperCase().localeCompare(b.brewery.name.toUpperCase());
+    return a.brewery.name.toUpperCase().localeCompare(b.brewery.name.toUpperCase())
   })
 }
 
@@ -38,7 +38,7 @@ document.addEventListener("turbolinks:load", () => {
   $("#name").click((e) => {
     e.preventDefault()
     BEERS.sort_by_name()
-    BEERS.show();
+    BEERS.show()
   })
 
   $("#style").click((e) => {
