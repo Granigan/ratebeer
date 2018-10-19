@@ -27,7 +27,7 @@ class BreweriesController < ApplicationController
 
   def list
   end
-  
+
   # POST /breweries
   # POST /breweries.json
   def create
