@@ -6,17 +6,22 @@
   <thead>
     <tr>
       <th>Username</th>
+      <th> Rated beers </th>
+      <th> Total ratings </th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
+        <td><%= user.beers.size %></td>
+        <td><%= user.ratings.size %></td>
+        <td>
         <% if admin_user? && user.banned %>
-          <td><span class="badge badge-danger">Banned</td>
+          <span class="badge badge-danger">Banned</span>
         <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

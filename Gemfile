@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.8'
   gem 'sqlite3'
+  gem 'rack-mini-profiler'
 end
 
 group :production do
